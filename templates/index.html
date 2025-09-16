@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>California House Price Predictor</title>
+    <!-- Load Tailwind CSS from CDN for modern, utility-first styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use the "Inter" font for a clean and professional look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 flex items-center justify-center min-h-screen p-4">
+
+    <!-- Main container for the content, styled as a card -->
+    <div class="bg-white p-8 sm:p-12 rounded-3xl shadow-2xl max-w-xl w-full text-center transform transition-all duration-300">
+
+        <!-- Application Title -->
+        <h1 class="text-4xl sm:text-5xl font-bold text-gray-800 mb-4">
+            California House Price Predictor
+        </h1>
+
+        <!-- Application Description -->
+        <p class="text-gray-600 mb-8 text-lg sm:text-xl">
+            Welcome to the California House Price Predictor! This application uses a machine learning model to estimate the median house value for different block groups in California. By analyzing key features of a community, we can provide an accurate prediction to help you understand local real estate values.
+        </p>
+
+        <!-- A short summary of the dataset characteristics for context -->
+        <div class="bg-gray-100 p-6 rounded-2xl mb-8 border border-gray-200 text-left">
+            <h2 class="text-xl sm:text-2xl font-semibold text-gray-700 mb-4 text-center">Dataset Overview</h2>
+            <ul class="text-sm sm:text-base text-gray-600 space-y-3">
+                <li class="flex items-center"><span class="font-bold text-blue-600 mr-2">•</span> <span class="font-medium text-gray-700">Source:</span> Derived from the 1990 U.S. Census, with each entry representing a census block group.</li>
+                <li class="flex items-center"><span class="font-bold text-blue-600 mr-2">•</span> <span class="font-medium text-gray-700">Target Variable:</span> Median House Value, expressed in hundreds of thousands of dollars ($100,000). This is the value our model predicts.</li>
+                <li class="flex items-center"><span class="font-bold text-blue-600 mr-2">•</span> <span class="font-medium text-gray-700">Total Instances:</span> 20,640 unique block groups are included in the dataset.</li>
+            </ul>
+        </div>
+
+        <!-- Section for key attributes -->
+        <div class="bg-gray-100 p-6 rounded-2xl mb-8 border border-gray-200 text-left">
+            <h2 class="text-xl sm:text-2xl font-semibold text-gray-700 mb-4 text-center">Key Attributes</h2>
+            <ul class="grid sm:grid-cols-2 gap-4 text-sm sm:text-base text-gray-600">
+                <li class="flex items-center"><span class="font-bold text-blue-600 mr-2">•</span> <span class="font-medium text-gray-700">MedInc:</span> Median income for the block group.</li>
+                <li class="flex items-center"><span class="font-bold text-blue-600 mr-2">•</span> <span class="font-medium text-gray-700">HouseAge:</span> Median house age in the block group.</li>
+                <li class="flex items-center"><span class="font-bold text-blue-600 mr-2">•</span> <span class="font-medium text-gray-700">AveRooms:</span> Average number of rooms per household.</li>
+                <li class="flex items-center"><span class="font-bold text-blue-600 mr-2">•</span> <span class="font-medium text-gray-700">AveBedrms:</span> Average number of bedrooms per household.</li>
+                <li class="flex items-center"><span class="font-bold text-blue-600 mr-2">•</span> <span class="font-medium text-gray-700">Population:</span> The total population of the block group.</li>
+                <li class="flex items-center"><span class="font-bold text-blue-600 mr-2">•</span> <span class="font-medium text-gray-700">AveOccup:</span> Average number of household members.</li>
+                <li class="flex items-center"><span class="font-bold text-blue-600 mr-2">•</span> <span class="font-medium text-gray-700">Latitude:</span> Block group latitude.</li>
+                <li class="flex items-center"><span class="font-bold text-blue-600 mr-2">•</span> <span class="font-medium text-gray-700">Longitude:</span> Block group longitude.</li>
+            </ul>
+        </div>
+        
+        <!-- The button to navigate to the prediction page -->
+        <!-- This link now correctly points to the Flask route, not a static file -->
+        <a href="{{ url_for('predict_datapoint') }}" class="inline-block w-full py-4 px-6 bg-blue-600 text-white font-bold text-lg rounded-full shadow-lg hover:bg-blue-700 transition duration-300 transform hover:scale-105">
+            Start Your Prediction
+        </a>
+
+    </div>
+
+</body>
+</html>
